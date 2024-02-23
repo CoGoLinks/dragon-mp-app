@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/enum/*": ["./src/enum/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/images/*": ["./src/images/*"],
+      "@/store/*": ["./src/store/*"],
+      "package": ["./package.json"]
+    }
+  }
+}
