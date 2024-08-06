@@ -3,6 +3,7 @@ import Taro, { useDidShow, useDidHide } from "@tarojs/taro";
 import { AppProvider } from "@/store";
 import "./app.less";
 
+
 export default function App(props) {
   useEffect(() => {
     // 打开调试

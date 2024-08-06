@@ -1,6 +1,11 @@
 export default {
   // 主包
-  pages: ["pages/login/index", "pages/home/index", "pages/member/index"],
+  pages: [
+    "pages/login/index",
+    "pages/home/index",
+    "pages/handbook/index",
+    "pages/member/index",
+  ],
   // 分包
   subpackages: [
     {
@@ -17,7 +22,13 @@ export default {
         pagePath: "pages/home/index",
       },
       {
-        text: "个人中心",
+        text: "图鉴",
+        iconPath: "images/my_off.png",
+        selectedIconPath: "images/my_on.png", // 81px * 81px
+        pagePath: "pages/handbook/index",
+      },
+      {
+        text: "我的",
         iconPath: "images/my_off.png",
         selectedIconPath: "images/my_on.png", // 81px * 81px
         pagePath: "pages/member/index",

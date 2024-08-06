@@ -1,13 +1,28 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Taro from "@tarojs/taro";
+import { Swiper, Grid, Image } from "@nutui/nutui-react-taro";
 import { View, Text, Button } from "@tarojs/components";
 import { useEnv, useModal } from "taro-hooks";
 import { getToken, toLogin } from "@/common";
 
 import "./index.less";
 
+const list = [
+  "https://storage.360buyimg.com/jdc-article/NutUItaro34.jpg",
+  "https://storage.360buyimg.com/jdc-article/NutUItaro2.jpg",
+  "https://storage.360buyimg.com/jdc-article/welcomenutui.jpg",
+  "https://storage.360buyimg.com/jdc-article/fristfabu.jpg",
+];
+const imgSrc =
+  "https://m.360buyimg.com/babel/jfs/t1/36973/29/11270/120042/5cf1fe3cEac2b5898/10c2722d0cc0bfa7.png";
 const Index = () => {
-  const env = useEnv();
+  const [asyncList, setAsyncList] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAsyncList(list);
+    }, 3000);
+  }, []);
 
   const [show] = useModal({
     title: "提示",
@@ -46,10 +61,37 @@ const Index = () => {
 
   return (
     <View className="wrapper">
+      <View className="text-[#acc855] text-[32px]">Hello world!</View>
+      <Swiper defaultValue={0} indicator>
+        {asyncList.map((item) => (
+          <Swiper.Item key={item}>
+            <img width="100%" height="100%" src={item} alt="" />
+          </Swiper.Item>
+        ))}
+      </Swiper>
       <View className="list">
-        <Text className="label">运行环境</Text>
-        <Text className="note">{env}</Text>
+        <Text className="label">标题</Text>
       </View>
+      <Grid columns={3} square>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+        <Grid.Item>
+          <Image src={imgSrc} width="100%" height="100%" />
+        </Grid.Item>
+      </Grid>
       <View className="list">
         <Text className="label">Token</Text>
         <Text className="note">{getToken()}</Text>

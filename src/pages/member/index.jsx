@@ -1,11 +1,24 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { View, Text, Button, Image } from "@tarojs/components";
 import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
+import { Cell, Video } from "@nutui/nutui-react-taro";
+
 import logo from "@/images/hook.png";
 
 import "./index.less";
 
 const Index = () => {
+  const [source, setSource] = useState({
+    src: "https://storage.360buyimg.com/nutui/video/video_NutUI.mp4",
+    type: "video/mp4",
+  });
+  const options = {
+    controls: true,
+  };
+  const play = (elm) => console.log("play", elm);
+  const pause = (elm) => console.log("pause", elm);
+  const playend = (elm) => console.log("playend", elm);
+
   const env = useEnv();
   // eslint-disable-next-line no-unused-vars
   const [_, { setTitle }] = useNavigationBar({ title: "Taro Hooks" });
@@ -26,6 +39,17 @@ const Index = () => {
 
   return (
     <View className="wrapper">
+      <Cell style={{ padding: "0" }}>
+        <Video
+          source={source}
+          options={options}
+          onPlay={play}
+          onPause={pause}
+          onPlayEnd={playend}
+          style={{ height: "163px" }}
+        />
+      </Cell>
+
       <Image className="logo" src={logo} />
       <Text className="title">为Taro而设计的Hooks Library</Text>
       <Text className="desc">

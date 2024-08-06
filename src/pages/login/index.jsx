@@ -199,7 +199,7 @@ const Index = () => {
 
   const onSubmitAction = useCallback(() => {
     // for 测试 start 使用的时候删除
-    setAuthInfo({ token: "我是个token" });
+    setAuthInfo({ token: "IamAtoken" });
     Taro.switchTab({ url: "/pages/home/index" });
     return;
     // for 测试 end
